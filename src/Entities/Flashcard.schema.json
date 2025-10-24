@@ -1,0 +1,54 @@
+{
+  "name": "Flashcard",
+  "type": "object",
+  "properties": {
+    "deckId": {
+      "type": "string",
+      "description": "Associated deck ID"
+    },
+    "front": {
+      "type": "string",
+      "description": "Front side of the card (question)"
+    },
+    "back": {
+      "type": "string",
+      "description": "Back side of the card (answer)"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "default": "medium",
+      "description": "Card difficulty level"
+    },
+    "nextReview": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Next scheduled review date"
+    },
+    "reviewCount": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of times reviewed"
+    },
+    "correctCount": {
+      "type": "number",
+      "default": 0,
+      "description": "Number of correct answers"
+    }
+  },
+  "required": [
+    "deckId",
+    "front",
+    "back"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

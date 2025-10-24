@@ -1,0 +1,98 @@
+{
+  "name": "Formula",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Formula title"
+    },
+    "formula": {
+      "type": "string",
+      "description": "Mathematical formula"
+    },
+    "description": {
+      "type": "string",
+      "description": "Formula description"
+    },
+    "subjectId": {
+      "type": "string",
+      "description": "Associated subject ID"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "mathematics",
+        "physics",
+        "chemistry",
+        "engineering",
+        "statistics",
+        "economics",
+        "other"
+      ],
+      "description": "Formula category"
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "problem": {
+            "type": "string"
+          },
+          "solution": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced"
+      ],
+      "default": "basic"
+    }
+  },
+  "required": [
+    "title",
+    "formula",
+    "category"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

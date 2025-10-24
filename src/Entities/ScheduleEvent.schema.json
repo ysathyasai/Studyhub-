@@ -1,0 +1,90 @@
+{
+  "name": "ScheduleEvent",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Event title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Event description"
+    },
+    "subjectId": {
+      "type": "string",
+      "description": "Associated subject ID"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "class",
+        "study",
+        "assignment",
+        "exam",
+        "break"
+      ],
+      "description": "Event type"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event start time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event end time"
+    },
+    "location": {
+      "type": "string",
+      "description": "Event location"
+    },
+    "isRecurring": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether event repeats"
+    },
+    "recurringPattern": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly",
+        "monthly"
+      ],
+      "description": "Recurring pattern if applicable"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "description": "Event priority"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether event is completed"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Event date for filtering"
+    }
+  },
+  "required": [
+    "title",
+    "type",
+    "startTime",
+    "endTime",
+    "date"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

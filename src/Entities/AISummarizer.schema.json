@@ -1,0 +1,51 @@
+{
+  "name": "AISummarizer",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Title of the summary"
+    },
+    "originalSource": {
+      "type": "string",
+      "description": "The source of the content (URL, file name, or 'text input')"
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": [
+        "youtube",
+        "file",
+        "text"
+      ],
+      "description": "The type of the source content"
+    },
+    "summary": {
+      "type": "string",
+      "description": "The generated summary"
+    },
+    "keyPoints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "A list of key points from the summary"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "summary",
+    "sourceType"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

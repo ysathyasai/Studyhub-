@@ -1,0 +1,80 @@
+{
+  "name": "Template",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Template title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Template description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "resume",
+        "cover-letter",
+        "research-paper",
+        "presentation",
+        "report",
+        "assignment",
+        "email",
+        "other"
+      ],
+      "description": "Template category"
+    },
+    "content": {
+      "type": "string",
+      "description": "Template content"
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "isPublic": {
+      "type": "boolean",
+      "default": false
+    },
+    "downloads": {
+      "type": "number",
+      "default": 0
+    },
+    "rating": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5
+    }
+  },
+  "required": [
+    "title",
+    "category",
+    "content"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

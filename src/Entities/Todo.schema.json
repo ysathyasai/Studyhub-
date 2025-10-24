@@ -1,0 +1,79 @@
+{
+  "name": "Todo",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Todo title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Todo description"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether todo is completed"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "description": "Todo priority"
+    },
+    "dueDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Due date"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "personal",
+        "academic",
+        "work",
+        "health",
+        "other"
+      ],
+      "default": "personal",
+      "description": "Todo category"
+    },
+    "subjectId": {
+      "type": "string",
+      "description": "Associated subject ID"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Completion timestamp"
+    },
+    "estimatedTime": {
+      "type": "number",
+      "description": "Estimated time in minutes"
+    },
+    "actualTime": {
+      "type": "number",
+      "description": "Actual time spent in minutes"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

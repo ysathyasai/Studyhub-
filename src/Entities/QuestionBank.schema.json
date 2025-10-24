@@ -1,0 +1,80 @@
+{
+  "name": "QuestionBank",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Question bank title"
+    },
+    "subjectId": {
+      "type": "string",
+      "description": "Associated subject ID"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "mcq",
+              "short",
+              "long",
+              "true-false"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "correctAnswer": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "easy",
+              "medium",
+              "hard"
+            ]
+          },
+          "marks": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "totalQuestions": {
+      "type": "number",
+      "default": 0
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard",
+        "mixed"
+      ],
+      "default": "mixed"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

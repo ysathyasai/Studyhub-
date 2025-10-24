@@ -1,0 +1,154 @@
+{
+  "name": "Course",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Course title"
+    },
+    "code": {
+      "type": "string",
+      "description": "Course code"
+    },
+    "description": {
+      "type": "string",
+      "description": "Course description"
+    },
+    "instructor": {
+      "type": "string",
+      "description": "Instructor name"
+    },
+    "instructorEmail": {
+      "type": "string",
+      "description": "Instructor email"
+    },
+    "credits": {
+      "type": "number",
+      "description": "Course credits"
+    },
+    "semester": {
+      "type": "string",
+      "description": "Semester/term"
+    },
+    "year": {
+      "type": "number",
+      "description": "Academic year"
+    },
+    "schedule": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string"
+          },
+          "endTime": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "syllabus": {
+      "type": "string",
+      "description": "Course syllabus"
+    },
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "points": {
+            "type": "number"
+          },
+          "submitted": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "exams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "grade": {
+      "type": "string",
+      "description": "Final grade"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "enrolled",
+        "completed",
+        "dropped"
+      ],
+      "default": "enrolled"
+    }
+  },
+  "required": [
+    "title",
+    "code"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

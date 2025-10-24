@@ -1,0 +1,64 @@
+{
+  "name": "StudySession",
+  "type": "object",
+  "properties": {
+    "subjectId": {
+      "type": "string",
+      "description": "Associated subject ID"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "focus",
+        "break",
+        "review",
+        "practice"
+      ],
+      "description": "Type of study session"
+    },
+    "duration": {
+      "type": "number",
+      "description": "Session duration in minutes"
+    },
+    "plannedDuration": {
+      "type": "number",
+      "description": "Originally planned duration in minutes"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Session start time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Session end time"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether session was completed"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Session notes"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Session date for filtering"
+    }
+  },
+  "required": [
+    "type",
+    "duration",
+    "startTime",
+    "date"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

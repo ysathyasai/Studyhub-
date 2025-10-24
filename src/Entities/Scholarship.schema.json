@@ -1,0 +1,104 @@
+{
+  "name": "Scholarship",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Scholarship title"
+    },
+    "organization": {
+      "type": "string",
+      "description": "Offering organization"
+    },
+    "description": {
+      "type": "string",
+      "description": "Scholarship description"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Scholarship amount"
+    },
+    "eligibility": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Eligibility criteria"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Application requirements"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date",
+      "description": "Application deadline"
+    },
+    "applicationUrl": {
+      "type": "string",
+      "description": "Application URL"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "merit",
+        "need-based",
+        "minority",
+        "field-specific",
+        "international",
+        "other"
+      ],
+      "description": "Scholarship category"
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "undergraduate",
+        "graduate",
+        "postgraduate",
+        "all"
+      ],
+      "description": "Academic level"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country/region"
+    },
+    "field": {
+      "type": "string",
+      "description": "Field of study"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "interested",
+        "applied",
+        "accepted",
+        "rejected"
+      ],
+      "default": "interested"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Personal notes"
+    },
+    "saved": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "title",
+    "organization",
+    "deadline"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

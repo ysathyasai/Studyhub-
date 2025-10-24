@@ -1,0 +1,53 @@
+{
+  "name": "Document",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title"
+    },
+    "content": {
+      "type": "string",
+      "description": "Document content"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "pdf",
+        "docx",
+        "txt",
+        "md",
+        "html"
+      ],
+      "description": "Document type"
+    },
+    "originalFormat": {
+      "type": "string",
+      "description": "Original format before conversion"
+    },
+    "fileUrl": {
+      "type": "string",
+      "description": "File URL if uploaded"
+    },
+    "size": {
+      "type": "number",
+      "description": "File size in bytes"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

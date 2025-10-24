@@ -1,0 +1,78 @@
+{
+  "name": "CommunityGroup",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Group name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Group description"
+    },
+    "isPublic": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether group is publicly visible"
+    },
+    "inviteCode": {
+      "type": "string",
+      "description": "Unique invite code for joining"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "admin",
+              "member"
+            ],
+            "default": "member"
+          },
+          "joinedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "default": []
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "study-group",
+        "subject-specific",
+        "project-collaboration",
+        "general",
+        "exam-prep"
+      ],
+      "default": "general"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "memberCount": {
+      "type": "number",
+      "default": 1
+    }
+  },
+  "required": [
+    "name",
+    "inviteCode"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "all",
+      "write": "creator"
+    }
+  }
+}

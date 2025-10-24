@@ -1,0 +1,68 @@
+{
+  "name": "ResearchPaper",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Research paper title"
+    },
+    "abstract": {
+      "type": "string",
+      "description": "Paper abstract"
+    },
+    "introduction": {
+      "type": "string",
+      "description": "Introduction section"
+    },
+    "methodology": {
+      "type": "string",
+      "description": "Methodology section"
+    },
+    "results": {
+      "type": "string",
+      "description": "Results section"
+    },
+    "discussion": {
+      "type": "string",
+      "description": "Discussion section"
+    },
+    "conclusion": {
+      "type": "string",
+      "description": "Conclusion section"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "in-progress",
+        "completed"
+      ],
+      "default": "draft"
+    },
+    "subjectId": {
+      "type": "string",
+      "description": "Associated subject ID"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}

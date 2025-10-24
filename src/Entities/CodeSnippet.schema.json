@@ -1,0 +1,95 @@
+{
+  "name": "CodeSnippet",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Code snippet title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Code description"
+    },
+    "code": {
+      "type": "string",
+      "description": "Code content"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "javascript",
+        "python",
+        "java",
+        "cpp",
+        "c",
+        "html",
+        "css",
+        "sql",
+        "php",
+        "ruby",
+        "go",
+        "rust",
+        "other"
+      ],
+      "description": "Programming language"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output": {
+      "type": "string",
+      "description": "Expected output"
+    },
+    "input": {
+      "type": "string",
+      "description": "Sample input"
+    },
+    "complexity": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        },
+        "space": {
+          "type": "string"
+        }
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "algorithm",
+        "data-structure",
+        "web-dev",
+        "mobile",
+        "database",
+        "utility",
+        "other"
+      ],
+      "description": "Code category"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "default": "beginner"
+    }
+  },
+  "required": [
+    "title",
+    "code",
+    "language"
+  ],
+  "x-accessControl": {
+    "permissions": {
+      "read": "creator",
+      "write": "creator"
+    }
+  }
+}
